@@ -1,4 +1,4 @@
-#!/bin/python2
+#!/bin/env python
 
 '''A quick way of getting information from aticonfig for use in scripts.
 
