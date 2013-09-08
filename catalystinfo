@@ -30,17 +30,17 @@ if __name__ == "__main__":
     arguments = docopt(__doc__, version="1.0.0beta2")
     a = GPUInfo()
     if arguments['--current-gpu-clock']:
-        print a.getCurrentClock("gpu")
+        print(a.getCurrentClock("gpu"))
     if arguments['--current-mem-clock']:
-        print a.getCurrentClock("mem")
+        print(a.getCurrentClock("mem"))
     if arguments['--max-gpu-clock']:
-        print a.getMaxClock("gpu")
+        print(a.getMaxClock("gpu"))
     if arguments['--max-mem-clock']:
-        print a.getMaxClock("mem")
+        print(a.getMaxClock("mem"))
     if arguments['--current-load']:
-        print a.getLoad()
+        print(a.getLoad())
     if arguments['--fan-speed']:
-        print a.getFanspeed() 
+        print(a.getFanspeed()) 
     if arguments['--gpu-temp']:
-        print a.getTemperature()
+        print(a.getTemperature())
 
