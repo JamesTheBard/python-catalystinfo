@@ -1,0 +1,46 @@
+#!/bin/python2
+
+'''A quick way of getting information from aticonfig for use in scripts.
+
+  Usage: 
+    atigpuinfo (--current-gpu-clock | -c)
+    atigpuinfo (--current-mem-clock | -d)
+    atigpuinfo (--max-gpu-clock | -e)
+    atigpuinfo (--max-mem-clock | -f)
+    atigpuinfo (--current-load | -l)
+    atigpuinfo (--fan-speed | -s)
+    atigpuinfo (--gpu-temp | -t)
+    atigpuinfo --version
+
+  Options:
+    -c --current-gpu-clock     return the GPU's current core clock speed
+    -d --current-mem-clock     return the GPU's current memory clock speed
+    -e --max-gpu-clock         return the GPU's maximum core clock speed
+    -f --max-mem-clock         return the GPU's maximum memory clock speed
+    -l --current-load          return the GPU's current load
+    -s --fan-speed             return the GPU's current fan speed as a percentage
+    -t --gpu-temp              return the GPU's current temperature
+
+'''
+
+from docopt import docopt
+from catalyst_info import GPUInfo
+
+if __name__ == "__main__":
+    arguments = docopt(__doc__, version="1.0.0beta2")
+    a = GPUInfo()
+    if arguments['--current-gpu-clock']:
+        print a.getCurrentClock("gpu")
+    if arguments['--current-mem-clock']:
+        print a.getCurrentClock("mem")
+    if arguments['--max-gpu-clock']:
+        print a.getMaxClock("gpu")
+    if arguments['--max-mem-clock']:
+        print a.getMaxClock("mem")
+    if arguments['--current-load']:
+        print a.getLoad()
+    if arguments['--fan-speed']:
+        print a.getFanspeed() 
+    if arguments['--gpu-temp']:
+        print a.getTemperature()
+
