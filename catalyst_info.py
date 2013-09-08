@@ -1,3 +1,5 @@
+#!/bin/env python
+
 from subprocess import check_output
 import locale
 import re
